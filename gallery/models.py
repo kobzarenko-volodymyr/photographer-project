@@ -13,3 +13,12 @@ class Album(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class AlbumImage(models.Model):
+    image = models.ImageField(upload_to='albums', blank=False)
+    thumb = models.ImageField(upload_to='albums', blank=False)
+    album = models.ForeignKey('album', on_delete=models.PROTECT)
+    alt = models.CharField(max_length=255)
+    created = models.DateTimeField(auto_now_add=True)
+    slug = models.SlugField(max_length=70, editable=False)
