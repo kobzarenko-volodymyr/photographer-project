@@ -4,6 +4,13 @@
 
 {% block content %}
 
-  <p>URLs</p>
+  <h1>{{ album.title }}</h1>
+
+  {% for item in images %}
+  <div>
+    <img src="{{ item.thumb.url }}" class="responsive-img dpg-album-image" alt="{{ item.alt }}" />
+  </div>
+
+  {% endfor %}
 
 {% endblock content %}
