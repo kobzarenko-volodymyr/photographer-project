@@ -3,5 +3,11 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-  <p>this site going to be done</p>
+
+  {% for album in albums %}
+
+     <p>{{ album.title }}</p>
+
+  {% endfor %}
+
 {% endblock content %}
