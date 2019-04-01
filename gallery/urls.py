@@ -4,5 +4,6 @@ import gallery.views
 # app_name = 'gallery'
 
 urlpatterns = [
-    path('<str:slug>/', gallery.views.AlbumDetail.as_view(), name='album'),
+    path('', gallery.views.Albums.as_view(), name='albums'),
+    path('<str:slug>/', gallery.views.AlbumDetail.as_view(), name='album_detail'),
 ]

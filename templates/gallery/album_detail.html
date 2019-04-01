@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Home{% endblock title %}
+{% block title %}Album details{% endblock title %}
 
 {% block content %}
 
@@ -8,7 +8,7 @@
 
   {% for item in images %}
   <div>
-    <img src="{{ item.thumb.url }}" class="responsive-img dpg-album-image" alt="{{ item.alt }}" />
+      <img src="{{ item.thumb.url }}" class="responsive-img dpg-album-image" alt="{{ item.alt }}" />
   </div>
 
   {% endfor %}
