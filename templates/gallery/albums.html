@@ -2,15 +2,31 @@
 
 {% block title %}Albums{% endblock title %}
 
+{% block nav_class_albums %}active{% endblock %}
+
 {% block content %}
 
-<h3>Hello</h3>
 
-  {% for album in albums %}
 
-    <p>{{ album.title }}</p>
-    <a href="{% url 'album_detail' album.slug %}">More Images</a>
+<div class="jumbotron">
+        <div class="row">
 
-  {% endfor %}
+            {% for album in albums %}
 
+            <div class="col-lg-6 col-md-6 mb-3">
+                <div class="hovereffect">
+                    <img class="img-responsive img-thumbnail" src="{{ album.thumb.url }}" alt="{{ album.title }}">
+                        <div class="overlay">
+                            <h2>{{ album.title }}</h2>
+                            <p>{{ album.description|truncatechars:30 }}</p>
+            				<p>
+            					<a href="{% url 'album_detail' album.slug %}">Открыть</a>
+            				</p>
+                        </div>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+</div>
 {% endblock content %}

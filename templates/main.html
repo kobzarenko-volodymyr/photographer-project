@@ -5,5 +5,56 @@
 {% block nav_class_main %}active{% endblock %}
 
 {% block content %}
-  <h3>This is Main template</h3>
+
+  <div class="jumbotron-fluid">
+    <img src="media/1.jpg" class="img-fluid" alt="Responsive image">
+  </div>
+
+  <!-- Jumbotron -->
+  <div class="jumbotron pb-2">
+      <p class="lead">«Лучшие изображения это те, которые сохраняют свою силу и влияние на протяжении многих лет,<br> независимо от того, сколько раз их рассматривают»</p>
+        <p class="text-right font-italic">- Anne Geddes.</p>
+      <hr class="my-4">
+      <p>Основной целью портфолио считают демонстрацию фотографом своих профессиональных и художественных навыков.</p>
+      <a class="btn btn-primary text-capitalize" href="#" role="button">Портфолио</a>
+  </div>
+  <!-- End Jumbotron -->
+
+
+  <!-- Jumbotron About Me -->
+  <div class="jumbotron">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-6">
+                  <h1>Обо мне</h1>
+                  <p>Меня зовут Александр, я — коммерческий фотограф и фанат своего дела.
+                    Занимаюсь организацией и проведением индивидуальных, а так же групповых (семейных) фотосессий.
+                </p>
+                <p>
+                    Жанры, в которых я работаю:
+                    <ul>
+                      <li>постановочная фотография</li>
+                      <li>fashion portrait</li>
+                      <li>glamour</li>
+                    </ul>
+                </p>
+                <p>
+                    Готовы реализовать любую вашу задумку или предложить свои варианты — в любом случае сделать так, чтобы вы получили не только прекрасный результат, но и удовольствие от процесса съёмки.
+                    В моей команде есть несколько стилистов, визажистов и парикмахеров, которые подбираются под ваш заказ, в зависимости от задач фотосессии.
+                    Так же я постоянно нахожусь в поиске новых лиц, идей и мест для фотосессии — поэтому с удовольствием выезжаю в другие города и страны.
+                </p>
+                <p>
+                    Более подробнее можно ознакомиться в разделе услуги.
+                </p>
+                <br>
+                  <a class="btn btn-primary text-capitalize" href="#" role="button">Услуги</a>
+              </div>
+              <div class="col-md-6">
+                  <img src="media/2.jpg" class="img-fluid" alt="Responsive image"">
+              </div>
+          </div>
+        </div>
+  </div>
+  <!-- Jumbotron About Me -->
+
 {% endblock content %}

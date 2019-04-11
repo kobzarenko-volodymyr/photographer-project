@@ -1,10 +1,13 @@
+import uuid
 from django.db import models
+from imagekit.models import ProcessedImageField
+from imagekit.processors import ResizeToFit, ResizeToFill
 
 
 class Album(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=70)
     description = models.TextField(max_length=1024)
-    thumb = models.ImageField(upload_to='albums', blank=False)
+    thumb = ProcessedImageField(upload_to='thumbs', processors=[ResizeToFill(800, 500)], format='JPEG', options={'quality': 100})
     tags = models.CharField(max_length=250)
     is_visible = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
@@ -16,9 +19,14 @@ class Album(models.Model):
 
 
 class AlbumImage(models.Model):
-    image = models.ImageField(upload_to='albums', blank=False)
-    thumb = models.ImageField(upload_to='albums', blank=False)
-    album = models.ForeignKey('album', on_delete=models.PROTECT)
-    alt = models.CharField(max_length=255)
+    image = ProcessedImageField(upload_to='albums', processors=[ResizeToFit(1280)], format='JPEG', options={'quality': 100})
+    thumb = ProcessedImageField(upload_to='thumbs', processors=[ResizeToFit(700)], format='JPEG', options={'quality': 100})
+    album = models.ForeignKey('album', on_delete=models.CASCADE)
+    alt = models.CharField(max_length=255, default=uuid.uuid4)
     created = models.DateTimeField(auto_now_add=True)
-    slug = models.SlugField(max_length=70, editable=False)
+    width = models.IntegerField(default=0)
+    height = models.IntegerField(default=0)
+    slug = models.SlugField(max_length=70, default=uuid.uuid4, editable=False)
+
+    def __str__(self):
+        return self.album.title
